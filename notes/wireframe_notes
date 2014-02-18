@@ -1,0 +1,58 @@
+_Wireframe_
+
+1. Page structure of app
+2. Data (type) present on each page
+3. Actions available on each page
+
+should have: text, links, search boxes, submit buttons
+
+In the requirements specifications, consider the use cases. 
+The wireframe needs to include these cases. You do not need to worry 
+about preconditions, or processing the information that's inputted by 
+the user. You do need to link from, for example, List Item -> "Success! 
+Your item has been posted", but for now just the link, no conditions to 
+reach the success page.
+
+http://z.cs.utexas.edu/users/cs105/ashorn49/
+
+Steps
+1. Review use cases to understand app
+2. Analyze data entities/classes and create data model on paper
+3. Sketch pages/screens
+	- Flow for use cases
+	- Identify actions per page
+	- Identify data elements per page
+4. Convert sketches to HTML (chmod 644)
+
+Use HTML5 Polyglot (check with validator and standard)
+Avoid "presentational markup" (editing styles in HTML tags, not style sheet)
+Don't use <b>, <i>, etc.
+Use "semantic markup" instead (giving tags classes)
+
+See "finished collage, deleted static folder in wcdb/" commit from Nov 14, 2013
+for HTML template example
+
+    <!-- This is a definition list with definition terms and defs -->
+	<dl>
+	  <dt>Test</dt>
+	  <dd><select>
+	    <option>Number 1</option>
+	    <option>Number 2</option>
+	    <option>Number 3</option>
+	  </select>
+	</dl>
+
+Useful tags
+<span>
+<div>
+<dl> <dt> <dd>
+<p>
+<hr>
+<form> <fieldset> <legend> <input> <label> <textarea> <button> <select> <option> <optgroup>
+<iframe>
+<ul> <ol> <li>
+<menu>
+<meter> <progress>
+<q>
+<sup> <sub>
+<table> <tbody> <tr> <td> <th> <tfoot> <thead>

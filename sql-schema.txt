@@ -1,0 +1,99 @@
+This is how I need to set up my database
+
++-----PERSON------+
+|  USER_ID        |
+|  LAST_NAME      |
+|  FIRST_NAME     |
+|  EMAIL_ADDRESS  |
+|  USER_PHOTO     |
++-----------------+
+
++---ADDRESS----+
+|  ADDRESS_ID  |
+|  USER_ID     |
+|  KIND        |
+|  NAME        |
+|  STREET_1    |
+|  STREET_2    |
+|  CITY        |
+|  STATE       |
+|  ZIP         |
++--------------+
+
++---ADDRESS_TYPE----+
+|  ADDRESS_TYPE_ID  |
+|  NAME             |
++-------------------+
+
++---BILLING_INFO----+
+|  BILLING_INFO_ID  |
+|  USER_ID          |
+|  LAST_NAME        |
+|  FIRST_NAME       |
+|  CARD_TYPE        |
+|  CARD_NUMBER      |
+|  EXP_MONTH        |
+|  EXP_DAY          |
+|  SECURITY_CODE    |
++-------------------+
+
++---CARD_TYPE----+
+|  CARD_TYPE_ID  |
+|  CARD_NAME     |
++----------------+
+
++---USER_REVIEW----+
+|  USER_REVIEW_ID  |
+|  USER_ID_FOR     |
+|  USER_ID_BY      |
+|  RELIABILITY     |
+|  HONESTY         |
+|  TIMELINESS      |
+|  OVERALL         |
+|  BUY_AGAIN       |
++------------------+
+
++---LOGIN----+
+|  LOGIN_ID  |
+|  USER_ID   |
+|  USERNAME  |
+|  PWD_HASH  |
++------------+
+
++------AUCTION-------+
+|  AUCTION_ID        |
+|  STATUS            |
+|  SELLER            |
+|  CURRENT_BID       |
+|  RESERVE_PRICE     |
+|  OPEN_TIME         |
+|  CLOSE_TIME        |
+|  ITEM_CATEGORY     |
+|  ITEM_NAME         |
+|  ITEM_DESCRIPTION  |
+|  ITEM_PHOTO        |
++--------------------+
+
++---AUCTION_STATUS----+
+|  AUCTION_STATUS_ID  |
+|  LABEL              |
++---------------------+
+
++---ITEM_CATEGORY----+
+|  ITEM_CATEGORY_ID  |
+|  NAME              |
++--------------------+
+
++----BID-----+
+|  BID_ID    |
+|  BIDDER    |
+|  AUCTION   |
+|  BID_TIME  |
+|  AMOUNT    |
++------------+
+
++---WATCHED_ITEMS----+
+|  WATCHED_ITEMS_ID  |
+|  USER_ID           |
+|  ITEM_ID           |
++--------------------+

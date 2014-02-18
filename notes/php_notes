@@ -1,0 +1,146 @@
+single quotes are literal, double quotes interpolate
+<?= is a shortcut for <?php echo ...;
+// or /* for comments
+
+four basic types
+1. boolean (true, false)
+2. integer
+3. float
+4. string
+
+two structured types
+1. array
+2. object
+
+String concat is done with dot (.), addition is plus (+)
+'1' + '2' = 3
+
+use htmlspecialchars() to ensure text is html safe
+will use this a lot
+
+put database file in home dir because z directory is world-readable
+put following line at top of page
+require '/u/ashorn49/openZdatabase.php'
+
+bindValue()
+execute()
+fetch()
+closeCursor()
+
+index into associative array by field name
+
+add ?id=1 to pass info via url
+can do $id = $_REQUEST['id'] to get this value
+
+saving..
+form action="saveEdit.php" method="post"
+
+
+ -- Categories --
+antiques
+art & collectibles
+books & movies & music
+cars
+clothing
+computers & electronics
+home
+jewelry
+musical instruments
+tools
+toys
+
+mysql -h z -u ashorn49 -p cs105_ashorn49
+smeMaagWp1
+> \. auction-tables.sql
+
+
+--------------- SQL --------------
+SELECT 
+    FORENAME, SURNAME 
+  FROM 
+    PERSON 
+  WHERE
+    PERSON_ID=1;
+
+SELECT
+    AUCTION.ITEM_CAPTION, PERSON.SURNAME
+  FROM
+    AUCTION
+  JOIN
+    PERSON
+  ON
+    AUCTION.SELLER = PERSON.PERSON_ID;
+
+--see edit.php sample online ------
+
+$openAuctionQuery = $database->prepare('
+    SELECT
+        A.STATUS,
+        CONCAT(P.FIRST_NAME, \' \', P.LAST_NAME) AS SELLER,
+        A.OPEN_TIME,
+        A.CLOSE_TIME,
+        C.NAME AS ITEM_CATEGORY,
+        A.ITEM_NAME,
+        A.ITEM_DESCRIPTION,
+        A.ITEM_PHOTO
+        FROM AUCTION A
+            JOIN ITEM_CATEGORY C ON A.ITEM_CATEGORY = C.ITEM_CATEGORY_ID
+            JOIN PERSON P ON A.SELLER = P.USER_ID
+        WHERE A.AUCTION_ID = :auctionId;
+    ');
+$thisAuctionId = $_REQUEST['id'];
+$openAuctionQuery->bindValue(':auctionId', $thisAuctionId, PDO::PARAM_INT);
+$openAuctionQuery->execute();
+$thisAuction = $openAuctionQuery->fetch();
+$openAuctionQuery->closeCursor();
+
+
+
+/*echo $auctionId.' '.$loggedInUserInfo['USER_ID'].date('Y-m-d H:i:s');
+$hour = $_POST['hour'];
+if($_POST['am_pm'] == 'pm'){
+	$hour += 12;
+}
+switch ($_POST['month']) {
+    case "January":
+        $month = '01';
+        break;
+    case "February":
+        $month = '02';
+        break;
+    case "March":
+        $month = '03';
+        break;
+    case "April":
+        $month = '04';
+        break;
+    case "May":
+        $month = '05';
+        break;
+    case "June":
+        $month = '06';
+        break;
+    case "July":
+        $month = '07';
+        break;
+    case "August":
+        $month = '08';
+        break;
+    case "September":
+        $month = '09';
+        break;
+    case "October":
+        $month = '10';
+        break;
+    case "November":
+        $month = '11';
+        break;
+    case "December":
+        $month = '12';
+        break;
+}
+echo date('Y').'-'.$month.'-'.$_POST['day'].' '.$hour.':'.$_POST['minute'].':00';
+echo $_POST['category'];
+echo $_POST['name'];
+echo $_POST['description'];
+echo $_POST['image'];*/

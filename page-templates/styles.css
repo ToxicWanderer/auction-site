@@ -1,0 +1,375 @@
+@charset "UTF-8";
+
+/*
+    ----------Template Assignment Requirements--------------
+  1. use margin, border, and padding --> fieldset type rule
+  2. two adjacent elements with float --> .trending and fieldset.register
+  3. the title is styled by h1, a, header a, h1.title a, 
+*/
+
+/* type (tag) selectors */
+
+body{
+  background-color: #ccd6cc; /* other options: #d7e2fe, #cddbfe, #c6c6ff, #c6d9fe, #d0e4fe;*/
+  margin: 0px;
+  min-width: 900px;
+}
+
+h1 {
+  color: #ededed;
+  margin: 10px; /*two margins together takes the larger, two paddings never overlap */
+  margin-top: 30px;
+  border: 2px;
+  padding-top: 15px;
+  font-size: 3em;
+  font-weight: bold;
+  /*text-shadow: 3px 3px 2px #406640;*/
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+h2 {
+  color: #cc5500; /* burnt orange -- also cf5300? */
+  margin: 10px;
+  margin-bottom: 0px;
+  margin-top: 20px;
+  /*text-shadow: 1px 1px 0.5px #888888;*/
+  letter-spacing: 0.5px;
+}
+
+h3 {
+  color: #cc5500;
+  margin: 10px;
+  margin-bottom: 0px;
+  margin-top: 20px;
+  /*text-shadow: 1px 1px 0.5px #888888;*/
+}
+
+h4 {
+  color: #cc5500;
+  margin: 20px;
+  /*text-shadow: 1px 1px 0.5px #888888;*/
+}
+
+h5 {
+  color: #cc5500;
+  margin: 20px;
+  /*text-shadow: 1px 1px 0.5px #888888;*/
+}
+
+h6 {
+  color: #cc5500;
+  margin: 10px;
+  /*text-shadow: 1px 1px 0.5px #888888;*/
+}
+
+p {
+  margin: 1.2em; /* responsive to changes in standard size in browser */
+}
+
+ul {
+  margin-top: 4px;
+  list-style-type: none;
+}
+
+dl {
+  margin: 10px;
+}
+
+hr {
+  /*box-shadow: 4px 4px 5px #809980;*/
+  background-color: #083b00;
+  color: #083b00;
+  width: 80%;
+  height: 1px;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: #293300;
+}
+
+a:hover, a:active {
+  text-decoration: underline;
+  color: #001f29;
+}
+
+header {
+  width: 100%;
+  background-color: #083b00; /*#003366;*/
+  color: #ededed;
+  padding: 10px;
+  margin: 0px;
+  border-width: 0px;
+  /*box-shadow: 5px 5px 9px #888888;*/
+  text-align: center;
+}
+
+footer {
+  clear: both;
+  text-align: center;
+}
+
+table {
+  text-align: center;
+  margin: 20px;
+}
+
+td {
+  width: 150px;
+}
+
+img {
+  /*box-shadow: 1px 1px 5px #809980;*/
+  float:right;
+  width: 200px;
+  height: 150px;
+  margin: 20px;
+}
+
+textarea {
+  background-color: #e6ebe6;/*#ebf5ff;*/
+  height: 80px;
+  width: 400px;
+}
+
+form {
+  margin: 10px;
+}
+
+fieldset {
+  /*box-shadow: 1px 1px 5px #888888;*/
+  margin: 20px;
+  border: dotted;
+  border-width: 1px;
+  border-color: #668566;
+  border-radius: 2px;
+  display: inline;
+  padding: 10px;
+  padding-bottom: 12px;
+}
+
+input {
+  background-color: #e6ebe6;/*#ebf5ff;*/
+  padding: 2px;
+  padding-left: 5px;
+  margin: 2px;
+  /*box-shadow: 1px 1px 5px #809980;*/
+}
+
+input[type="email"] {
+  width: 230px;
+}
+
+input[type="file"] {
+  /*box-shadow: 0px 0px 0px #000000;*/
+  background-color: #ccd6cc;
+}
+
+label {
+  margin: 5px;
+  font-style: italic;
+  color: #333333;
+}
+
+legend {
+  color: #191919;
+  font-size: 1.2em; /* 30% larger than normal font */
+  font-style: italic;
+  font-weight: 600;
+  /*text-shadow: 1px 1px 0px #406640;*/
+}
+
+select {
+  background-color: #e6ebe6;/*#ebf5ff;*/
+  text-align:center;
+}
+
+/*descendant selectors */
+header a:link, header a:visited {
+  color: #f0f7ff;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+}
+
+header a:hover, header a:active {
+  color: #f0f7ff;
+  letter-spacing: 0.5px;
+  font-weight: normal;
+  font-style: italic;
+  text-decoration: none;
+}
+
+header input {
+  background-color: #ccd6cc;
+  width: 150px;
+}
+
+header input[type="radio"] {
+  width: 20px;
+}
+
+header input[type="checkbox"] {
+  width: 20px;
+}
+
+header label {
+  color: #f0f7ff;
+  font-size: 0.9em;
+}
+
+header legend {
+  color: #ededed;
+}
+
+header form {
+  display: inline-block;
+  text-align: center;
+}
+
+header fieldset {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  /*box-shadow: 2px 2px 10px #234f23;*/
+}
+
+form a:link, form a:visited {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin: 10px;
+  margin-top: 20px;
+  letter-spacing: 0.5px;
+}
+
+form a:hover, form a:active {
+  font-size: 1.3em;
+  font-weight: bold;
+  font-style: italic;
+  text-decoration: none;
+  margin: 10px;
+  margin-top: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* child selectors */
+form > p {
+  color: yellow;
+  font-style: italic;
+}
+
+/* class selectors */
+img.medium {
+  width:264px;
+  height:200px;
+}
+
+img.large {
+  width:400px;
+  height:300px;
+}
+
+.floatLeft {
+  float: left;
+}
+
+.floatRight {
+  float: right;
+}
+
+.center {
+  text-align: center;
+}
+
+.clear {
+  clear: both;
+}
+
+.back {
+  font-size:1em;
+}
+
+.login {
+  float: right;
+}
+
+.pageTitle {
+  margin-left: 20px;
+}
+
+.pageContent {
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+.loginInfo {
+  margin: 10px;
+  margin-right: 20px;
+  float:right;
+}
+
+div.listings {
+  margin-right: 50px;
+  margin-left: 50px;
+  clear:both;
+  overflow:hidden;
+}
+
+.trending {
+  float: left;
+}
+
+form.review {
+  position: relative;
+  left: 10%;
+}
+
+input.search {
+  width: 400px;
+}
+
+form.search {
+  display: inline-block;
+}
+
+li.trending {
+  margin-top: 5px;
+  float: none;
+}
+
+.floatLabel {
+  text-align: right;
+  clear: left;
+  float: left;
+  width: 150px;
+  height: 20px;
+}
+
+div.filterOrder {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input.name, input.password {
+  width: 100px;
+}
+
+fieldset.register {
+  padding: 10px;
+  margin: 20px;
+  margin-top: 30px;
+  float: right;
+}
+
+h1.title a:link, h1.title a:visited, h1.title a:hover, h1.title a:active {
+  color: #f0f7ff;
+  margin: 15px;
+  text-decoration: none;
+  font-weight:bold;
+  font-style:normal;
+}
+
+/* id selector */
+#pagetitle {
+  font-size: 40pt; /* avoid stuff like 20px and cm,in (except printing)*/
+}

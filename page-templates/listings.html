@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <title>Keith's Auction Site: Listings</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <header>
+      <div class="loginInfo">
+        You are logged in as <a href="myAccount.html">Bill</a>. (<a href="index.html">Logout</a>)
+      </div>
+
+	  <h1 class="title"><a href="index.html">Keith's Auction Site</a></h1>
+
+      <form class="search">
+        <fieldset class="search">
+          <legend>Search</legend>
+          <select>
+            <option>All Categories</option>
+            <option>Clothing</option>
+            <option>Electronics</option>
+            <option>Home</option>
+            <option>...</option>
+          </select>
+          <input class="search" type="search" />
+          <select>
+            <option>Item Name</option>
+            <option>Seller Name</option>
+          </select>
+          <a href="listings.html">Submit</a>
+          <div class="filterOrder">
+            <label>Filter by price</label>
+            <select>
+              <option>Less than</option>
+              <option>Greater than</option>
+            </select>
+            <label>   $</label>
+            <input type="number" />
+            <input type="checkbox" />
+            <br />
+            <label>Order By</label>
+            <select>
+              <option>Relevance</option>
+              <option>Price: Low to High</option>
+              <option>Price: High to Low</option>
+              <option>Closing Soon</option>
+            </select>
+            <input type="checkbox" />
+          </div>
+        </fieldset>
+      </form>
+    
+    </header>
+
+	<h2 class="pageTitle">Item Listings</h2>
+    <br/>
+
+    <div class="pageContent">
+      <div class="listings">
+        <a href="item.html"><img src="notFound.jpg" alt="Item Image"/></a>
+        <h4><a href="item.html">[Item 1 Name]</a> -- Current bid: $[current bid]</h4>
+        <h5>Reserve this item for $[reserve price]</h5>
+        <p>[Description for item 1 here]</p>
+      </div>
+
+      <hr />
+
+      <div class="listings">
+        <a href="item.html"><img src="notFound.jpg" alt="Item Image"/></a>
+        <h4><a href="item.html">[Item 2 Name]</a> -- Current bid: $[current bid]</h4>
+        <h5>Reserve this item for $[reserve price]</h5>
+        <p>[Description for item 2 here]</p>
+      </div>
+
+      <hr />
+
+      <div class="listings">
+        <a href="item.html"><img src="notFound.jpg" alt="Item Image"/></a>
+        <h4><a href="item.html">[Item 3 Name]</a> -- Current bid: $[current bid]</h4>
+        <h5>Reserve this item for $[reserve price]</h5>
+        <p>[Description for item 3 here]</p>
+      </div>
+    </div>
+
+    <footer>
+      <br />
+      <h5>Keith Ashorn 2013</h5>
+    </footer>
+  </body>
+</html>

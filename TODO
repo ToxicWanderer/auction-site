@@ -1,0 +1,10 @@
+make tables (eg myAccount) fixed size, and overflow:auto or overflow:scroll
+	nest content in another table with colspan="numCols"
+	http://stackoverflow.com/questions/17450861/add-scroll-bar-to-table-body
+do the categories <select> option selected for search
+be sure nothing bad happens when navigating directly to success pages
+make sure status changes when time is up
+make successBid, itemRemoved, successNotification go back to calling item
+retry place bid on sql error
+
+move site to github/heroku
