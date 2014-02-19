@@ -1,3 +1,4 @@
+don't allow double creating account (by refreshing successRegister.php)
 remove login info on register page (or make it account dependent)
 make sure every page is served over https
 add login logic to every page (either redirect to login page or diferentiate content)
