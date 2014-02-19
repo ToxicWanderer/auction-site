@@ -272,6 +272,10 @@ form a:hover, form a:active {
   letter-spacing: 0.5px;
 }*/
 
+form a {
+  font-style: italic;
+}
+
 /* child selectors */
 form > p {
   color: yellow;

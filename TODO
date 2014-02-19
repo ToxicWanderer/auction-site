@@ -1,3 +1,7 @@
+remove login info on register page (or make it account dependent)
+make sure every page is served over https
+add login logic to every page (either redirect to login page or diferentiate content)
+
 make tables (eg myAccount) fixed size, and overflow:auto or overflow:scroll
 	nest content in another table with colspan="numCols"
 	http://stackoverflow.com/questions/17450861/add-scroll-bar-to-table-body
@@ -7,4 +11,6 @@ make sure status changes when time is up
 make successBid, itemRemoved, successNotification go back to calling item
 retry place bid on sql error
 
-move site to github/heroku
+once everything is done, move site to heroku (setup open z database file for PostgreSQL)
+	https://devcenter.heroku.com/articles/quickstart
+	http://code.tutsplus.com/tutorials/quick-tip-deploy-php-to-heroku-in-seconds--net-27657

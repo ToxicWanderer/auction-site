@@ -1,6 +1,15 @@
 <?php
 require '/u/ashorn49/openZdatabase.php';
 
+if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') { 
+	// we're not running on https
+	header('Location: https://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']);
+	exit (0);
+} elseif (isset($_SESSION['user_id'])) {
+	header('Location: listings.php');
+	exit (0);
+}
+
 $categoriesQuery = $database->prepare('
 	SELECT
 		ITEM_CATEGORY_ID,
@@ -11,11 +20,6 @@ $categoriesQuery->execute();
 $categories = $categoriesQuery->fetchAll();
 $categoriesQuery->closeCursor();
 
-if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') { 
-	// we're not running on https
-	header('Location: https://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']);
-	exit (0);
-} 
 ?>
 
 <!DOCTYPE html>
@@ -63,6 +67,46 @@ endforeach;
     </header>
 
     <div class="pageContent">
+
+      <form action="successRegister.php" method="POST">
+        <fieldset class="register">
+          <legend>Register as New User</legend>
+          <div>
+            <label>First Name</label>
+            <input name="first_name" class="name" type="text" required="required"/>
+            <label>Last Name</label>
+            <input name="last_name" class="name" type="text" required="required"/>
+          </div>
+          <div>
+            <label class="floatLabel">Email</label>
+            <input name="email_1" type="email" required="required"/>
+          </div>
+          <div>
+            <label class="floatLabel">Re-enter Email</label>
+            <input name="email_2" type="email" required="required"/>
+          </div>
+          <div>
+            <label class="floatLabel">Username</label>
+            <input name="username" type="text" required="required"/>
+          </div>
+          <div>
+            <label class="floatLabel">Password</label>
+            <input name="pwd_1" type="password" required="required"/>
+          </div>
+          <div>
+            <label class="floatLabel">Re-enter Password</label>
+            <input name="pwd_2" type="password" required="required"/>
+          </div>
+          <div class="center clear">
+            <input name="accept_terms" type="checkbox" required="required"/>
+            I agree to the <a href="termsAndConditions.php" target="_blank">Terms and Conditions</a>
+          </div>
+          <div class="center clear">
+            <button class="submit">Register</button>
+          </div>
+        </fieldset>
+      </form>
+
       <div class="trending">
         <h2>Recently Added</h2>
         <ul>
@@ -111,39 +155,6 @@ endforeach;
 ?>
         </ul>
       </div>
-
-      <form>
-        <fieldset class="register">
-          <legend>Register as New User</legend>
-          <div>
-            <label>First Name</label>
-            <input class="name" type="text" required="required"/>
-            <label>Last Name</label>
-            <input class="name" type="text" required="required"/>
-          </div>
-          <div>
-            <label class="floatLabel">Email</label>
-            <input type="email" required="required"/>
-          </div>
-          <div>
-            <label class="floatLabel">Re-enter Email</label>
-            <input type="email" required="required"/>
-          </div>
-          <div>
-            <label class="floatLabel">Username</label>
-            <input type="text" required="required"/>
-          </div>
-          <div>
-            <label class="floatLabel">Password</label>
-            <input type="password" required="required"/>
-          </div>
-          <div>
-            <label class="floatLabel">Re-enter Password</label>
-            <input type="password" required="required"/>
-          </div>
-          <button class="submit" formaction="termsAndConditions.php">Register</button>
-        </fieldset>
-      </form>
     </div>
 
     <footer>

@@ -35,13 +35,10 @@ $loggedInUserInfoQuery->closeCursor();
 	<h2 class="pageTitle">Terms and Conditions</h2>
 
     <div class="pageContent">
-      <h4>Accept terms and conditions to finish creating your account</h4>
-
       <p>[Terms and conditions here]</p>
 
       <form>
-        <button class="cancel" formaction="index.php">Cancel</a>
-        <button class="submit" formaction="successNotification.php">Accept</a>
+        <button class="submit" onclick="window.close()">Close</a>
       </form>
     </div>
 
