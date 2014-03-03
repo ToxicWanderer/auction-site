@@ -1,6 +1,5 @@
 <?php
 require '/u/ashorn49/openZdatabase.php';
-require 'closeAuction.php';
 session_start();
 
 if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') { 

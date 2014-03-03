@@ -31,52 +31,32 @@ if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') {
     </header>
 
 <?php
-// read in values from $_POST
+// ADDRESS_ID, USER_ID, 1=Billing, NAME, STREET_1, STREET_2, CITY, STATE, ZIP
+// ADDRESS_ID, USER_ID, 2=Shipping, NAME, STREET_1, STREET_2, CITY, STATE, ZIP
+// BILLING_INFO_ID, USER_ID, LAST_NAME, FIRST_NAME, CARD_TYPE, CARD_NUMBER, EXP_MONTH, EXP_DAY, SECURITY_CODE
 
-// error checking
-if($email_1 !== $email_2) {
-?>
-    <script>
-      alert("The email addresses you entered did not match.\nPlease confirm your email address.");
-      history.back();
-    </script>
-<?php
-} else {
-	// page logic here
-
-	// report success or failure
-	if(True/*all ok*/) :
-		// log user in and show success message
-		session_regenerate_id(true);
-		$_SESSION['LOGGED_IN_ID'] = $userId;
+$selectedItems = $_POST['items'];
+foreach($selectedItems as $curr) {
+	$updateAuctionStmt = $database->prepare('
+	    UPDATE AUCTION
+			SET PAID = 1
+			WHERE AUCTION_ID = :id;
+	    ');
+	
+	$updateAuctionStmt->bindValue(':id', $curr, PDO::PARAM_INT);
+	$updateAuctionStmt->execute();
+	$updateAuctionStmt->closeCursor();
+}
 ?>
 	<h2 class="pageTitle">Success!</h2>
     <div class="pageContent">
-      <p>[success message]</p>
+      <p>Payment successfully processed!</p>
+      <p>Note: Not really.  This isn't an actually ecommerce site.</p>
 
-      <!-- next action -->
       <form action="myAccount.php">
-        <button class="submit">View My Account</button>
+        <button class="submit">Return to My Account</button>
       </form>
     </div>
-
-<?php
-	else:
-?>
-	<h2 class="pageTitle">Failure!</h2>
-    <div class="pageContent">
-      <p>[error message]</p>
-
-      <!-- next action -->
-      <form action="index.php">
-        <button class="submit">Accept</button>
-      </form>
-    </div>
-
-<?php
-endif;
-}
-?>
 
     <footer>
       <br />

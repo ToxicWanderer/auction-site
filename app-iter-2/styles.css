@@ -212,10 +212,9 @@ header a:link, header a:visited {
 header a:hover, header a:active {
   color: #f0f7ff;
   letter-spacing: 0.5px;
-  text-decoration: underline;
-  /*font-weight: normal;
+  font-weight: normal;
   font-style: italic;
-  text-decoration: none;*/
+  text-decoration: none;
 }
 
 header input {
@@ -284,10 +283,6 @@ form > p {
 }
 
 /* class selectors */
-div.ui-datepicker {
-  font-size:10px;
-}
-
 img.medium {
   width:264px;
   height:200px;
@@ -310,6 +305,22 @@ td.colspan {
 
 th.overScrollBar {
   width: 8px;
+}
+
+.floatLeft {
+  float: left;
+}
+
+.floatRight {
+  float: right;
+}
+
+.center {
+  text-align: center;
+}
+
+.clear {
+  clear: both;
 }
 
 .marginMedium {
@@ -418,26 +429,6 @@ h1.title a:link, h1.title a:visited, h1.title a:hover, h1.title a:active {
   text-decoration: none;
   font-weight:bold;
   font-style:normal;
-}
-
-.hidden {
-  display: none;
-}
-
-.floatLeft {
-  float: left;
-}
-
-.floatRight {
-  float: right;
-}
-
-.center {
-  text-align: center;
-}
-
-.clear {
-  clear: both;
 }
 
 /* id selector */

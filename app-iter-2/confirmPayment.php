@@ -9,10 +9,8 @@ if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') {
 } elseif (!isset($_SESSION['user_id'])) { 
 	header('Location: login.php');
 	exit (0);
-} elseif (!isset($_POST['items'])) {
-	header('Location: error.php');
-	exit (0);
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -35,66 +33,6 @@ if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') {
 	<h2 class="pageTitle">Confirm</h2>
 
     <div class="pageContent">
-<?php
- if (strlen($_POST['bill_zip']) != 5){
- ?>
-       <script>
-         alert("You entered an incorrect length zip code for your billing address.\nPlease enter a five digit zip code.");
-         history.back();
-       </script>
- <?php
- } elseif (!is_numeric($_POST['bill_zip'])){
- ?>
-       <script>
-         alert("You entered a non-numeric zip code for your billing address.\nPlease enter a five digit zip code.");
-         history.back();
-       </script>
- <?php
- } elseif (strlen($_POST['ship_zip']) != 5){
- ?>
-       <script>
-         alert("You entered an incorrect length zip code for your shipping address.\nPlease enter a five digit zip code.");
-         history.back();
-       </script>
- <?php
- } elseif (!is_numeric($_POST['ship_zip'])){
- ?>
-       <script>
-         alert("You entered a non-numeric zip code for your shipping address.\nPlease enter a five digit zip code.");
-         history.back();
-       </script>
- <?php
- } elseif (!is_numeric($_POST['pay_card_no'])) {
- ?>
-       <script>
-         alert("You entered a non-numeric credit card number.\nPlease enter your card number only with no dashes or other characters.");
-         history.back();
-       </script>
- <?php
- } elseif (strlen($_POST['pay_card_no']) != 16) {
- ?>
-       <script>
-         alert("You entered a credit card number with an incorrect number of digits.\nPlease enter your card number only with no dashes or other characters.");
-         history.back();
-       </script>
- <?php
- } elseif (!is_numeric($_POST['pay_cvc'])) {
- ?>
-       <script>
-         alert("You entered a non-numeric security code.\nPlease enter the security code found on the back of your card.");
-         history.back();
-       </script>
- <?php
- } elseif (strlen($_POST['pay_card_cvc']) != 3) {
- ?>
-       <script>
-         alert("You entered a CVC security code with an incorrect number of digits.\nPlease enter the security code found on the back of your card.");
-         history.back();
-       </script>
- <?php
- }
- ?>
- 
       <p>Please confirm your order as well as your payment and shipping information.</p>
 
       <h3>Items</h3>
@@ -131,7 +69,7 @@ foreach($selectedItems as $curr) {
 	$totalPrice += $itemInfo['AMOUNT'];
 ?>
           <tr>
-            <td><?=htmlspecialchars($curr)?></td>
+            <td><?=$curr?></td>
             <td><?=$itemInfo['ITEM_NAME']?></td>
             <td><?=$itemInfo['CLOSE_TIME']?></td>
             <td>$<?=$itemInfo['AMOUNT']?></td>
@@ -156,11 +94,11 @@ foreach($selectedItems as $curr) {
           <dt>Type: </dt>
           <dd><?=htmlspecialchars($_POST['pay_card_type'])?></dd>
           <dt>Number:</dt>
-          <dd><?="xxxx-xxxx-xxxx-".substr(htmlspecialchars($_POST['pay_card_no']), -4)?></dd>
-          <dt>Exp Month:</dt>
+          <dd><?=htmlspecialchars($_POST['pay_card_no'])?></dd>
+          <dt>Exp Mo:</dt>
           <dd><?=htmlspecialchars($_POST['pay_exp_mo'])?></dd>
-          <dt>Exp Year:</dt>
-          <dd><?=htmlspecialchars($_POST['pay_exp_yr'])?></dd>
+          <dt>Exp Day</dt>
+          <dd><?=htmlspecialchars($_POST['pay_exp_day'])?></dd>
         </dl>
       </div>
 
@@ -205,7 +143,7 @@ foreach($selectedItems as $curr) {
 $selectedItems = $_POST['items'];
 foreach($selectedItems as $curr) {
 ?>
-        <input type="hidden" name="items[]" value="<?=htmlspecialchars($curr)?>" /> 
+        <input type="hidden" name="items[]" value="<?=$curr?>" /> 
 <?php
 }
 ?>

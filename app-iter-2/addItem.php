@@ -17,9 +17,6 @@ if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') {
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
   <head>
     <title>Keith's Auction Site</title>
-    <script src="//code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <meta charset="utf-8" />
   </head>
@@ -120,14 +117,24 @@ endfor;
                 <option>pm</option>
               </select>
               <label>on</label>
-              <script>
-                $(function() { $( "#datepicker" ).datepicker({ 
-		      		dateFormat: "yy-mm-dd",
-					minDate: 0,
-					maxDate: "+2M",
-		      		showButtonPanel:true }); });
-              </script>
-              <input type="text" id="datepicker" name="date" value="<?=date("Y-m-d")?>"/>
+              <select name="month">
+<?php
+for ($i = 1; $i <= 12; $i++) :
+?>
+                <option value="<?=sprintf('%02d', $i)?>"><?=date("F", mktime(0,0,0,$i+1,0,0,0))?></option>
+<?php
+endfor;
+?>
+              </select>
+              <select name="day">
+<?php
+for ($i = 1; $i <= 31; $i++):
+?>
+                <option><?=sprintf('%02d', $i)?></option>
+<?php
+endfor;
+?>
+              </select>
             </dd>
             <dt>Upload Photo:</dt>
             <dd><input type="file" name="photo" accept="image/*" /></dd>

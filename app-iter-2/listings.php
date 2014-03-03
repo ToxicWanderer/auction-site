@@ -31,7 +31,6 @@ $categoriesQuery->closeCursor();
     <title>Keith's Auction Site: Listings</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <meta charset="utf-8" />
-    <script src="utils.js"></script>
   </head>
 
   <body>
@@ -115,11 +114,11 @@ $auctions = $auctionsQuery->fetchAll();
 $auctionsQuery->closeCursor();
 
 foreach ($auctions as $auction):
-$thisAuctionId = htmlspecialchars($auction['AUCTION_ID']);
+$thisAuctionId = $auction['AUCTION_ID'];
 ?>
       <div class="listings">
-        <a href="item.php?id=<?=$thisAuctionId?>"><img src="itemPhoto.php?id=<?=$thisAuctionId?>" class="floatLeft" alt="Item Image"/></a>
-        <h4><a href="item.php?id=<?=$thisAuctionId?>"><?=htmlspecialchars($auction['ITEM_NAME'])?></a> -- 
+        <a href="item.php?id=<?=htmlspecialchars($auction['AUCTION_ID'])?>"><img src="itemPhoto.php?id=<?=$thisAuctionId?>" class="floatLeft" alt="Item Image"/></a>
+        <h4><a href="item.php?id=<?=htmlspecialchars($auction['AUCTION_ID'])?>"><?=htmlspecialchars($auction['ITEM_NAME'])?></a> -- 
 <?php
 
 if(isset($auction['CURRENT_BID_ID'])){
@@ -146,14 +145,8 @@ if(isset($auction['CURRENT_BID_ID'])){
 if($loggedInUserId != $auction['SELLER_ID'] and $auction['RESERVE_PRICE'] != '0.00') {
         echo '<h5>Reserve this item for $'.htmlspecialchars($auction['RESERVE_PRICE']).'</h5>';
 }
-
-$descId = "desc".$thisAuctionId;
-$toggleId = "toggle".$thisAuctionId;
 ?>
-
-        <p class="hidden" id="<?=$descId?>"><?=htmlspecialchars($auction['ITEM_DESCRIPTION'])?></p>
-        <p><a id="<?=$toggleId?>" onclick="toggleDesc('<?=$descId?>', '<?=$toggleId?>');" href="javascript:void(0);">--Show Description--</a></p>
-
+        <p><?=htmlspecialchars($auction['ITEM_DESCRIPTION'])?></p>
       </div>
 
 <?php

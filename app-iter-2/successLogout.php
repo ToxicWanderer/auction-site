@@ -1,13 +1,15 @@
 <?php
 require '/u/ashorn49/openZdatabase.php';
+require 'password.php';
 session_start();
 
-if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') { 
-	// we're not running on https
-	header('Location: https://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']);
-	exit (0);
+if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== "on") {
+    header('HTTP/1.1 403 Forbidden: TLS Required');
+	header('Location: index.php');
+    exit(1);
 }
-
+session_destroy();
+session_regenerate_id(true);
 ?>
 
 <!DOCTYPE html>
@@ -23,14 +25,12 @@ if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') {
 	  <h1 class="title"><a href="index.php">Keith's Auction Site</a></h1>
     </header>
 
-	<h2 class="pageTitle">Terms and Conditions</h2>
-
+	<h2 class="pageTitle">Success!</h2>
     <div class="pageContent">
-      <p>If this were a real ecommerce site, terms and conditions would go here.</p>
-      <p>Note: This is not a real ecommerce site, please do not use for actual business.</p>
+      <p>You've been logged out</p>
 
-      <form>
-        <button class="submit" onclick="window.close()">Close</a>
+      <form action="index.php">
+        <button class="submit">Continue</button>
       </form>
     </div>
 

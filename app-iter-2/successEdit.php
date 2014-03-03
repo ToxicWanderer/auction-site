@@ -100,7 +100,9 @@ if(!is_numeric(htmlspecialchars($_POST['starting_bid']))) {
 	$updateAuctionStmt->bindValue(':auctionId', $auctionId, PDO::PARAM_INT);
 	$updateAuctionStmt->bindValue(':startingBid', htmlspecialchars($_POST['starting_bid']), PDO::PARAM_STR);
 	$updateAuctionStmt->bindValue(':reservePrice', htmlspecialchars($_POST['reserve_bid']), PDO::PARAM_STR);
-	$date = htmlspecialchars($_POST['date']);
+	$year = date('Y');
+	$month = htmlspecialchars($_POST['month']);
+	$day = htmlspecialchars($_POST['day']);
 	$hour = $_POST['hour'];
 	if($hour % 12 == 0){
 		$hour -= 12;
@@ -109,7 +111,11 @@ if(!is_numeric(htmlspecialchars($_POST['starting_bid']))) {
 		$hour += 12;
 	}
 	$minute = htmlspecialchars($_POST['minute']);
-	$timeString = $date.' '.$hour.':'.$minute.':00';
+	$timeString = $year.'-'.$month.'-'.$day.' '.$hour.':'.$minute.':00';
+	if(strtotime($timeString) <= time()){
+		$year++;
+		$timeString = $year.'-'.$month.'-'.$day.' '.$hour.':'.$minute.':00';
+	}
 	$updateAuctionStmt->bindValue(':closeTime', $timeString, PDO::PARAM_STR);
 	$updateAuctionStmt->bindValue(':category', $_POST['category'], PDO::PARAM_INT);
 	$updateAuctionStmt->bindValue(':name', $_POST['name'], PDO::PARAM_STR);

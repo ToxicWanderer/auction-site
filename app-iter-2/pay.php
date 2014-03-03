@@ -37,19 +37,9 @@ if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') {
       <form action="confirmPayment.php" method="post">
 <?php
 $selectedItems = $_POST['items'];
-
-if(count($_POST['items']) < 1){
-?>
-	<script>
-		alert("You must select at least one item to pay for.\nTo proceed to this page please select at least one item.");
-		window.location.assign("myAccount.php");
-	</script>
-<?php
-}
-
 foreach($selectedItems as $curr) {
 ?>
-        <input type="hidden" name="items[]" value="<?=htmlspecialchars($curr)?>" /> 
+        <input type="hidden" name="items[]" value="<?=$curr?>" /> 
 <?php
 }
 ?>
@@ -215,30 +205,9 @@ foreach($selectedItems as $curr) {
             <dt>Credit Card Number:</dt>
             <dd><input name="pay_card_no" type="number" required="required" /></dd>
             <dt>Expiration Month:</dt>
-            <dd>
-              <select name="pay_exp_mo">
-<?php
-for ($i = 1; $i <= 12; $i++) :
-?>
-                <option value="<?=sprintf('%02d', $i)?>"><?=date("F", mktime(0,0,0,$i+1,0,0,0))?></option>
-<?php
-endfor;
-?>
-              </select>
-            </dd>
-            <dt>Expiration Year:</dt>
-            <dd>
-              <select name="pay_exp_yr">
-<?php
-$year = date("Y");
-for ($i = $year; $i < $year+4;  $i++) :
-?>
-                <option><?=$i?></option>
-<?php
-endfor;
-?>
-              </select>
-            </dd>
+            <dd><input name="pay_exp_mo" type="number" required="required" /></dd>
+            <dt>Expiration Day:</dt>
+            <dd><input name="pay_exp_day" type="number" required="required" /></dd>
             <dt>Security Code:</dt>
             <dd><input name="pay_cvc" type="number" required="required" /></dd>
           </dl>

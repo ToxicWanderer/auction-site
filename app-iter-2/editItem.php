@@ -36,9 +36,6 @@ $conditionsQuery->closeCursor();
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
   <head>
     <title>Keith's Auction Site</title>
-    <script src="//code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <meta charset="utf-8" />
   </head>
@@ -183,15 +180,24 @@ endfor;
                 <option <?='pm' == date('a', strtotime($thisAuction['CLOSE_TIME'])) ? ' selected="selected"' : '';?>>pm</option>
               </select>
               <label>on</label>
-              <script>
-                $(function() { $( "#datepicker" ).datepicker({ 
-		      		dateFormat: "yy-mm-dd",
-					minDate: 0,
-					maxDate: "+2M",
-                    defaultDate: new Date(<?=$thisAuction['CloseTime']?>),
-		      		showButtonPanel:true }); });
-              </script>
-              <input type="text" id="datepicker" name="date" value="<?=date("Y-m-d", strtotime($thisAuction['CLOSE_TIME']))?>"/>
+              <select name="month">
+<?php
+for ($i = 1; $i <= 12; $i++) :
+?>
+                <option value="<?=sprintf('%02d', $i)?>" <?=$i == date('n', strtotime($thisAuction['CLOSE_TIME'])) ? ' selected="selected"' : '';?>><?=date("F", mktime(0,0,0,$i+1,0,0,0))?></option>
+<?php
+endfor;
+?>
+              </select>
+              <select name="day">
+<?php
+for ($i = 1; $i <= 31; $i++):
+?>
+                <option <?=$i == date('j', strtotime($thisAuction['CLOSE_TIME'])) ? ' selected="selected"' : '';?>><?=sprintf('%02d', $i)?></option>
+<?php
+endfor;
+?>
+              </select>
             </dd>
             <dt>Upload New Photo:</dt>
             <dd><input type="file" accept="image/*" name="photo"/></dd>

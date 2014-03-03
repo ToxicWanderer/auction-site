@@ -1,0 +1,55 @@
+Scheme-like conceptually
+Not object oriented -- no classes
+Objects are 
+
+<script>/*script here*/</script>
+	or
+<script src="four-forces.js" type="text/javascript"></script> 
+better practice to do latter
+
+in <head> or <body>
+
+use id to reference element
+
+onfocus is when element gets orange highlight around it
+"onblur" is when focus comes off of you
+
+"string"
+123
+123.123
+true false
+null
+var varName; // the value is undefined
+
+/H.*o!/  //this is a regex
+
+functions can be stored (first-class objects)
+
+cross browser innerText vs textContent
+var text = x.innerText || x.textContent
+
+
+--- Objects ---
+every object is a collection of properties
+
+var anObject = {
+	greeting: "Hello", // property
+	hello: function() { alert(this.greeting); } // method
+};
+
+anObject.hello();
+anObject.greeting = "New Greeting";
+anObject.goodbye = function() { alert("Ta ta for now!"); };
+
+var anArray = [1, 2, 3];
+
+function addOne(val) { return val + 1 };
+
+anArray.map(addOne);
+
+
+__proto__ is how JS handles inheritance
+If property isn't found, searches object pointed to by __proto__.
+If not found there, continue searching until it runs out of pointers to chase.
+This means that in JS you inherit state and function, not just funciton (like Java).
+

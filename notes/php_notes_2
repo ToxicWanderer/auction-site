@@ -1,0 +1,10 @@
+Try to keep php at top as much as possible
+Use '' for php and "" for html as much as possible
+php likes 4 spaces, no tabs
+for curly braces, open on same line except for classes which open on new line
+Java-like classes do exist (use -> instead of .)
+require dumps file like copying in text
+could use require to add common header code to all pages
+namespaces - UTexas\CS { code }
+PEAR - PHP Extension and Application Repository
+Real world uses frameworks (e.g. zend framework 2)
