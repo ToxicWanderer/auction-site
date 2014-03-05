@@ -57,36 +57,9 @@ endforeach;
       </form>
     </header>
 
-	<h2 class="pageTitle center">&laquoThis user info page is under development&raquo</h2>
-	<h2 class="pageTitle">User: [userId]</h2>
-
+	<h2 class="pageTitle">Error - Invalid Action</h2>
     <div class="pageContent">
-      <img class="medium" src="notFound.jpg" alt="User Profile Image"/>
-
-      <h3>[City, State]</h3>
-
-      <h4>Current user satisfaction rating is [percentage]%.</h4>
-      <h4><a href="review.php">Write a review for this user</a></h4>
-
-      <h3>User's Auctions</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Item ID.</th>
-            <th>Date</th>
-            <th>Current Price</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>[<a href="item.php">number</a>]</td>
-            <td>[date]</td>
-            <td>[current price]</td>
-            <td>[Open/Closed]</td>
-          </tr>
-        </tbody>
-      </table>    
+      <p>You've attempted to access a page within our site that doesn't exist or that you don't have access rights to.  If you believe that you have received this message in error, please contact our webmaster.</p>
     </div>
 
     <footer>

@@ -1,31 +1,11 @@
-Disclosure control
-	include part of description
-User input validation coverage
-	set maxlength on form fields
-	use <div class="error_msg" id="err_[field_name]"></div> and set contents
-	add css rule for .error_msg
-	addItem, editItem, pay, index (register), item (bid), review
-	remove "required" property and handle it in js
-Something snazzy
-	change bg color of input fields when active (w3schools focus/blur)
-	some hover event
-
-payment stuff 
-	validate inputs (finish up in myscripts.js)
-	decide what should go into db and write it (maybe)
-	get stuff from db to pre-fill if applicable (if I do previous)
-        <input name="pay_first_name" type="hidden" value="<?=htmlspecialchars($_POST['pay_first_name']).' '.htmlspecialchars($_POST['pay_last_name'])?>" />
-        <input name="pay_card_type" type="hidden" value="<?=htmlspecialchars($_POST['pay_card_type'])?>" />
-        <input name="pay_card_no" type="hidden" value="<?=htmlspecialchars($_POST['pay_card_no'])?>" />
-        <input name="pay_exp_mo" type="hidden" value="<?=htmlspecialchars($_POST['pay_exp_mo'])?>" />
-        <input name="pay_exp_day" type="hidden" value="<?=htmlspecialchars($_POST['pay_exp_day'])?>" />
-		continue for the other three types
-
 make reserve price actually close auction
 include close time on listings.php
 include whether or not you are the leading bidder on item.php
 view listings w/o logging in
 make "incorrect info" go back on confim pay
+
+decide what should go into db and write it (maybe)
+get stuff from db to pre-fill if applicable (if I do previous)
 
 do user/review pages
 paging of listings page
@@ -39,6 +19,7 @@ make successBid, itemRemoved, successNotification go back to calling item
 retry place bid on sql error
 replace newlines with <br> in item descriptions when displaying
 get rid of query/category errors in listings.php when no get params given
+animate expand/collapse description
 
 once everything is done, move site to heroku (setup open z database file for PostgreSQL)
 	https://devcenter.heroku.com/articles/quickstart

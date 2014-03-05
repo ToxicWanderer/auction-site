@@ -1,6 +1,5 @@
 <?php
 require '/u/ashorn49/openZdatabase.php';
-require 'password.php';
 session_start();
 
 if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') { 
@@ -11,6 +10,17 @@ if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') {
 	header('Location: login.php');
 	exit (0);
 }
+
+
+$categoriesQuery = $database->prepare('
+	SELECT
+		ITEM_CATEGORY_ID,
+		NAME
+		FROM ITEM_CATEGORY;
+	');
+$categoriesQuery->execute();
+$categories = $categoriesQuery->fetchAll();
+$categoriesQuery->closeCursor();
 ?>
 
 <!DOCTYPE html>
@@ -28,55 +38,29 @@ if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') {
       </div>
 
 	  <h1 class="title"><a href="index.php">Keith's Auction Site</a></h1>
+
+      <form class="search" action="listings.php" method="get">
+        <fieldset class="search">
+          <legend>Search</legend>
+          <select name="category">
+            <option value='0'>All Categories</option>
+<?php
+foreach ($categories as $curr):
+?>
+            <option value="<?=htmlspecialchars($curr['ITEM_CATEGORY_ID'])?>"><?=htmlspecialchars($curr['NAME'])?></option>
+<?php
+endforeach;
+?>
+          </select>
+          <input class="search" name="query" type="search" />
+          <button class="search" type="submit" formaction="listings.php">Search</button>
+        </fieldset>
+      </form>
     </header>
 
-<?php
-// read in values from $_POST
-
-// error checking
-if($email_1 !== $email_2) {
-?>
-    <script>
-      alert("The email addresses you entered did not match.\nPlease confirm your email address.");
-      history.back();
-    </script>
-<?php
-} else {
-	// page logic here
-
-	// report success or failure
-	if(True/*all ok*/) :
-		// log user in and show success message
-		session_regenerate_id(true);
-		$_SESSION['LOGGED_IN_ID'] = $userId;
-?>
-	<h2 class="pageTitle">Success!</h2>
+	<h2 class="pageTitle">Title</h2>
     <div class="pageContent">
-      <p>[success message]</p>
-
-      <!-- next action -->
-      <form action="myAccount.php">
-        <button class="submit" type="submit">View My Account</button>
-      </form>
     </div>
-
-<?php
-	else:
-?>
-	<h2 class="pageTitle">Failure!</h2>
-    <div class="pageContent">
-      <p>[error message]</p>
-
-      <!-- next action -->
-      <form action="index.php">
-        <button class="submit" type="submit">Accept</button>
-      </form>
-    </div>
-
-<?php
-endif;
-}
-?>
 
     <footer>
       <br />
