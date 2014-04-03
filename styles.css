@@ -365,6 +365,10 @@ form.search {
   display: inline-block;
 }
 
+fieldset.login {
+  min-width: 600px;
+}
+
 li.trending {
   margin-top: 5px;
   float: none;

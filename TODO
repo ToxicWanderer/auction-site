@@ -1,25 +1,22 @@
 make reserve price actually close auction
 include close time on listings.php
 include whether or not you are the leading bidder on item.php
+do watched items
+do user/review pages
+paging of listings page (add LIMIT to SQL querry)
 view listings w/o logging in
 make "incorrect info" go back on confim pay
-
-decide what should go into db and write it (maybe)
-get stuff from db to pre-fill if applicable (if I do previous)
-
-do user/review pages
-paging of listings page
 make tables (eg myAccount) fixed size, and overflow:auto or overflow:scroll
 	nest content in another table with colspan="numCols"
 	http://stackoverflow.com/questions/17450861/add-scroll-bar-to-table-body
-do watched items
-do the categories <select> option selected for search
-be sure nothing bad happens when navigating directly to success pages
 make successBid, itemRemoved, successNotification go back to calling item
 retry place bid on sql error
 replace newlines with <br> in item descriptions when displaying
 get rid of query/category errors in listings.php when no get params given
-animate expand/collapse description
+animate expand/collapse description and make it do the real summary/info functionality
+
+decide what should go into db and write it (maybe)
+get stuff from db to pre-fill if applicable (if I do previous)
 
 once everything is done, move site to heroku (setup open z database file for PostgreSQL)
 	https://devcenter.heroku.com/articles/quickstart
