@@ -1,11 +1,11 @@
 <?php
-try {
+//try {
 	$info = parse_url(getenv('DATABASE_URL'));
     $database = new PDO("pgsql:host={$info['host']};port={$info['port']};dbname={$info['path']}", $info['user'], $info['pass'], array(
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_PERSISTENT => true
     ));
-} catch(PDOException $e) {
+/*} catch(PDOException $e) {
     error_log("{$e->getFile()}:{$e->getLine()}: PDO open failed: {$e->getCode()}: {$e->getMessage()}");
     header("HTTP/1.1 500 Internal Server Error");
     echo '<!DOCTYPE html>
@@ -23,6 +23,6 @@ try {
 </html>
 ';
     exit(1);
-}
+}*/
 ?>
 
