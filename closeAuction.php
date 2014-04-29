@@ -1,5 +1,5 @@
 <?php
-require '/u/ashorn49/openZdatabase.php';
+require 'db.php';
 
 if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') { 
 	// we're not running on https
