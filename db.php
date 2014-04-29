@@ -1,6 +1,7 @@
 <?php
 //try {
 	$info = parse_url(getenv('DATABASE_URL'));
+	var_dump($info);
     $database = new PDO("pgsql:host={$info['host']};port={$info['port']};dbname={$info['path']}", $info['user'], $info['pass'], array(
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_PERSISTENT => true
