@@ -1,3 +1,8 @@
+Make sql script do setup.  Add dummy data online
+Change all requires to use db.php
+
+
+
 make reserve price actually close auction
 include close time on listings.php
 include whether or not you are the leading bidder on item.php
