@@ -1,6 +1,8 @@
 Make sql script do setup.  Add dummy data online
 Change all requires to use db.php
-
+Fix references to SEQ to use postgres functions
+Fix HTTPS redirects
+Redo headers to refactor out common code
 
 
 make reserve price actually close auction
@@ -20,6 +22,7 @@ replace newlines with <br> in item descriptions when displaying
 get rid of query/category errors in listings.php when no get params given
 animate expand/collapse description and make it do the real summary/info functionality
 
+Payments--
 decide what should go into db and write it (maybe)
 get stuff from db to pre-fill if applicable (if I do previous)
 

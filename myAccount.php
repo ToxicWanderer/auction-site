@@ -1,5 +1,5 @@
 <?php
-require '/u/ashorn49/openZdatabase.php';
+require 'db.php';
 require 'closeAuction.php';
 session_start();
 

@@ -1,5 +1,5 @@
 <?php
-require '/u/ashorn49/openZdatabase.php';
+require 'db.php';
 session_start();
 
 if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') { 
