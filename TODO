@@ -1,5 +1,5 @@
 Make sql script do setup.  Add dummy data online
-Change all requires to use db.php
+Check SQL on pages (eg rand() functions)
 Fix references to SEQ to use postgres functions
 Fix HTTPS redirects
 Redo headers to refactor out common code

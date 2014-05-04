@@ -30,7 +30,7 @@ $categoriesQuery->closeCursor();
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
   <head>
     <title>Keith's Auction Site</title>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="/styles.css" />
     <meta charset="utf-8" />
     <script src="utils.js"></script>
     <script src="validateRegisterForm.js"></script>
