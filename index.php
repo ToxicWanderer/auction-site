@@ -64,6 +64,8 @@ endif;
 ?>
 	  <h1 class="title"><a href="index.php">Keith's Auction Site</a></h1>
 
+<?=$_SERVER['HTTPS']?>
+
       <form class="search" action="listings.php" method="get">
         <fieldset class="search">
           <legend>Search</legend>
