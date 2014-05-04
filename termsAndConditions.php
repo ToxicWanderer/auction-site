@@ -1,12 +1,13 @@
 <?php
+require 'httpsRedirect.php';
 require 'db.php';
 session_start();
 
-if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') { 
+/*if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') { 
 	// we're not running on https
 	header('Location: https://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']);
 	exit (0);
-}
+}*/
 
 ?>
 

@@ -1,18 +1,10 @@
 <?php
+require 'httpsRedirect.php';
 require 'db.php';
 require 'closeAuction.php';
 ini_set('session.gc_maxlifetime', 3600);
 session_set_cookie_params(3600);
 session_start();
-
-/*if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') { 
-	// we're not running on https
-	header('Location: https://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']);
-	exit (0);
-} elseif (isset($_SESSION['user_id'])) { 
-	header('Location: listings.php');
-	exit (0);
-} */
 
 $categoriesQuery = $database->prepare('
 	SELECT

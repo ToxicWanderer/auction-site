@@ -1,15 +1,7 @@
 <?php
+require 'httpsRedirect.php';
 require 'db.php';
 session_start();
-
-if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') { 
-	// we're not running on https
-	header('Location: https://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']);
-	exit (0);
-} elseif (!isset($_SESSION['user_id'])) { 
-	header('Location: login.php');
-	exit (0);
-}
 
 $currBidQuery = $database->prepare('
 	SELECT

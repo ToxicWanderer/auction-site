@@ -1,13 +1,14 @@
 <?php
+require 'httpsRedirect.php';
 require 'db.php';
 require 'password.php';
 session_start();
 
-if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== "on") {
+/*if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== "on") {
     header('HTTP/1.1 403 Forbidden: TLS Required');
 	header('Location: index.php');
     exit(1);
-}
+}*/
 session_destroy();
 session_regenerate_id(true);
 ?>
