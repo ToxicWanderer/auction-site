@@ -112,7 +112,7 @@ $auctionsQuery = $database->prepare('
         ITEM_NAME
         FROM AUCTION
         WHERE STATUS = 1
-		ORDER BY RAND()
+		ORDER BY RANDOM()
 		LIMIT 4;
     ');
 $auctionsQuery->execute();
