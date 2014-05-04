@@ -96,12 +96,11 @@ if($email_1 !== $email_2) {
 <?php
 } else {
 
-	$newIdQuery = $database->prepare('SELECT NEXT_SEQ_VALUE(:seqGenName);');
-	$newIdQuery->bindValue(':seqGenName', 'PERSON', PDO::PARAM_STR);
+	$newIdQuery = $database->prepare('SELECT nextval(:seqGenName);');
+	$newIdQuery->bindValue(':seqGenName', 'USER_ID_SEQ', PDO::PARAM_STR);
 	$idOk = $newIdQuery->execute();
 	$userId = $newIdQuery->fetchColumn(0);
-	$newIdQuery->closeCursor();
-	
+	$newIdQuery->closeCursor();	
 	
 	$addUserStmt = $database->prepare('
 		INSERT INTO PERSON
