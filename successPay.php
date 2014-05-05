@@ -1,7 +1,6 @@
 <?php
 require 'httpsRedirect.php';
 require 'db.php';
-require 'password.php';
 session_start();
 
 ?>
