@@ -71,7 +71,7 @@ $unpaidAuctionsQuery = $database->prepare('
 			ON A.CURRENT_BID_ID = B.BID_ID
 		WHERE A.STATUS = 3
 			AND B.BIDDER = :id
-			AND (A.PAID = 0 OR A.PAID IS NULL);
+			AND (A.PAID IS TRUE OR A.PAID IS NULL);
 	');
 $unpaidAuctionsQuery->bindValue(':id', $_SESSION['user_id'], PDO::PARAM_INT);
 $unpaidAuctionsQuery->execute();
